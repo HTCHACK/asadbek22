@@ -15,5 +15,7 @@ Route::apiResource('tour_categories', TourCategoryController::class);
 Route::apiResource('tours', TourController::class);
 
 Route::post('login', [LoginController::class, 'login']);
+//asa
+Route::post('login', [LoginController::class, 'login']);
 
 Route::apiResource('users', UserController::class);
