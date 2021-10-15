@@ -16,9 +16,10 @@ class CreateCommentsTable extends Migration
         Schema::create('comments', function (Blueprint $table) {
             $table->id();
             $table->string('name')->nullable();
+            $table->unsignedBigInteger('tour_id')->nullable();
+            $table->foreign('tour_id')->references('id')->on('tours')->onDelete('cascade');
             $table->string('content')->nullable();
             $table->string('phone_number')->nullable();
-            $table->unsignedBigInteger('tour_id')->nullable();
             $table->boolean('confirm')->default(false);
             $table->timestamps();
         });

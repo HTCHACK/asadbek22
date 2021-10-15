@@ -11,13 +11,14 @@ class UserController extends Controller
     
     // public function __construct()
     // {
-    //     $this->middleware('auth:sanctum');
+    //     $this->middleware('auth:api');
     // }
 
     public function index()
-    {
+    {   
+        
         return response()->json([
-            'all' => User::all()
+            'all' => User::with('roles')->get()
         ]);
     }
 }

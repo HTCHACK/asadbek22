@@ -16,7 +16,8 @@ class OrderController extends Controller
     public function index()
     {
         return response()->json([
-            'all' => Order::all()
+            'all' => Order::orderBy('created_at','desc')->with('tour')->get(),
+            'status' => true
         ]);
     }
 

@@ -23,6 +23,8 @@ class Kernel extends HttpKernel
         \App\Http\Middleware\TrimStrings::class,
         \Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull::class,
         \App\Http\Middleware\setLanguage::class,
+       // \App\Http\Middleware\AddAuthHeader::class,
+        //\Illuminate\Auth\Middleware\Authenticate::class,
     ];
 
     /**
@@ -47,6 +49,14 @@ class Kernel extends HttpKernel
             'throttle:api',
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
         ],
+
+        // 'auth.api' => [
+        //     \App\Http\Middleware\AddAuthHeader::class,
+        //     'throttle:60,1',
+        //     'bindings',
+        //     'auth:api',
+        //     \Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse::class,
+        // ],
     ];
 
     /**

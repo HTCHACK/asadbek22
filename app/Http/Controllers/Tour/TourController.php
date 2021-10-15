@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Tour\Tour;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
+use App\Http\Resources\TourResource;
 
 class TourController extends Controller
 {
@@ -31,24 +32,17 @@ class TourController extends Controller
      */
     public function store(Request $request)
     {
-        Tour::create([
-            'tour_category_id' => $request->tour_category_id,
-            'title' => $request->title,
-            'content' => $request->content,
-            'phone_number' => $request->phone_number,
-            'user_id' => Auth::user()->id,
-            'location' => $request->location,
-            'is_published' => boolval($request->is_published),
-            'is_popular' => boolval($request->is_popular),
-            'price' => $request->price,
-            'country' => $request->country,
-            'city' => $request->city,
-            'is_it_here' => boolval($request->is_it_here),
-            'lang' => $request->lang,
-            'picture' => $request->hasFile('picture') ? $request->file('picture')->storeAs('public/images', Str::random(20) . '.' . $request->file('picture')->getClientOriginalExtension()) : null,
-        ]);
 
+        $data = $request->all();
 
+        $file = $request->file('picture');
+        $name = '/picture/' . uniqid() . '.' . $file->extension();
+        $file->storePubliclyAs('public', $name);
+        $data['picture'] = $name;
+
+        $tour = Tour::create($data);
+
+        return new TourResource($tour);
     }
 
     /**

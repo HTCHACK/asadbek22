@@ -7,7 +7,8 @@ use App\Models\Gallery\Gallery;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use App\Http\Requests\GalleryRequest;
-
+use Illuminate\Auth\Access\Gate;
+use App\Http\Resources\GalleryResource;
 
 class GalleryController extends Controller
 {
@@ -19,13 +20,12 @@ class GalleryController extends Controller
 
     public function __construct()
     {
-        
     }
 
     public function index()
     {
         return response()->json([
-            'all' => Gallery::all(),
+            'all' => Gallery::orderBy('created_at', 'desc')->get(),
             'status' => true
         ]);
     }
@@ -38,15 +38,17 @@ class GalleryController extends Controller
      */
     public function store(GalleryRequest $request)
     {
-        $created = Gallery::create([
-            'name' => $request->name,
-            'picture' => $request->hasFile('picture') ? $request->file('picture')->storeAs('public/', Str::random(20) . '.' . $request->file('picture')->getClientOriginalExtension()) : null
-        ]);
 
-        return response()->json([
-            'created' => $created,
-            'status' => true
-        ]);
+        $data = $request->all();
+
+        $file = $request->file('picture');
+        $name = '/picture/' . uniqid() . '.' . $file->extension();
+        $file->storePubliclyAs('public', $name);
+        $data['picture'] = $name;
+
+        $gallery = Gallery::create($data);
+
+        return new GalleryResource($gallery);
     }
 
     /**
@@ -60,7 +62,7 @@ class GalleryController extends Controller
         $showGallery = Gallery::query()->where('id', $id)->get();
 
         return response()->json([
-            'showGallery' => $showGallery,
+            $showGallery,
             'status' => true
         ]);
     }
@@ -75,15 +77,22 @@ class GalleryController extends Controller
     public function update(GalleryRequest $request, $id)
     {
         $gallery = Gallery::findOrFail($id);
-        $gallery->update([
-            'name' => $request->name,
-            'picture' => $request->hasFile('picture') ? $request->file('picture')->storeAs('public/', Str::random(20) . '.' . $request->file('picture')->getClientOriginalExtension()) : $gallery->picture
-        ]);
+        $data = $request->all();
 
-        return response()->json([
-            'updated' => $gallery,
-            'status' => true
-        ]);
+        if ($request->picture == $gallery->picture) {
+            $gallery->update($data);
+        } else {
+            $file = $request->file('picture');
+            $name = '/picture/' . uniqid() . '.' . $file->extension();
+            $file->storePubliclyAs('public', $name);
+            $data['picture'] = $name;
+
+            $gallery->update($data);
+        }
+
+
+
+        return new GalleryResource($gallery);
     }
 
     /**

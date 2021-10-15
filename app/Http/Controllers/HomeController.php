@@ -11,7 +11,7 @@ class HomeController extends Controller
     public function index()
     {
 
-        return view('welcome', [
+        return view('home', [
             'tours' => Tour::where('is_it_here',false)->where('lang', $this->getLang())->paginate(12), 'uzbtours' => Tour::where('lang', $this->getLang())->where('is_it_here', true)->paginate(10)
         ]);
 

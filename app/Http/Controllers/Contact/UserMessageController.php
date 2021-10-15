@@ -17,7 +17,7 @@ class UserMessageController extends Controller
     public function index()
     {
         return response()->json([
-            'all' => UserMessage::all(),
+            'all' => UserMessage::orderBy("created_at",'desc')->get(),
             'status' => true
         ]);
     }

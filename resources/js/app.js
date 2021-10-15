@@ -5,12 +5,16 @@
  */
 import Vue from 'vue'
 import router from "./router/router";
+import store from './store';
+
 
 import ElementUI from "element-ui";
 import locale from "element-ui/lib/locale/lang/en";
 
 import "element-ui/lib/theme-chalk/index.css";
 import "element-ui/lib/theme-chalk/reset.css";
+
+import "nprogress/nprogress.css";
 
 Vue.use(ElementUI, { locale });
 
@@ -31,6 +35,21 @@ window.Vue = require('vue').default;
 
 Vue.component('app-master', require('./App.vue').default);
 
+axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
+
+Vue.component('pagination', require('laravel-vue-pagination'));
+
+
+import ElSearchTablePagination from 'el-search-table-pagination'
+
+// Default use axios as HTTP tool
+Vue.use(ElSearchTablePagination)
+// or set a custom HTTP tool
+import axios from 'axios'
+Vue.use(ElSearchTablePagination, {
+    axios
+})
+
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -38,6 +57,7 @@ Vue.component('app-master', require('./App.vue').default);
  */
 
 const app = new Vue({
-    router,
+    router, 
+    store,
     el: '#app',
 });

@@ -4,7 +4,7 @@ namespace App\Models\Tour;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\Category\TourCategory;
+use App\Models\Category\TourCategory\TourCategory;
 use App\Models\Tour\TourComments;
 use DateTimeInterface;
 use App\Models\RBAC\User;

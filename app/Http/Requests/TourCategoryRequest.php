@@ -24,7 +24,7 @@ class TourCategoryRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|unique:tour_categories'
+            'name' => 'required|min:3'
         ];
     }
 }

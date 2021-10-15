@@ -11,11 +11,12 @@ class TourComments extends Model
 {
     use HasFactory;
 
+    protected $table = 'comments';
     protected $guarded=[];
 
     public function tour()
     {
-        return $this->belongsTo(Tour::class);
+        return $this->belongsTo(Tour::class,'tour_id');
     }
 
     protected function serializeDate(DateTimeInterface $date)

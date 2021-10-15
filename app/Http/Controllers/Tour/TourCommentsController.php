@@ -17,7 +17,7 @@ class TourCommentsController extends Controller
     public function index()
     {
         return response()->json([
-            'all' => TourComments::all()
+            'all' => TourComments::orderBy('created_at','desc')->with('tour')->get()
         ]);
     }
 
@@ -60,7 +60,17 @@ class TourCommentsController extends Controller
     public function update(Request $request, $id)
     {
         $comment = TourComments::find($id);
-        $comment->update(['confirm'=>true]);
+        $comment->update(['confirm' => true]);
+
+        return response()->json([
+            'updated' => 'Successfully confirmed'
+        ]);
+    }
+
+    public function unconfirm(Request $request, $id)
+    {
+        $comment = TourComments::find($id);
+        $comment->update(['confirm' => false]);
 
         return response()->json([
             'updated' => 'Successfully confirmed'

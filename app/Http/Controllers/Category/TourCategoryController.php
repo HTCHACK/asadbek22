@@ -17,7 +17,7 @@ class TourCategoryController extends Controller
     public function index()
     {
         return response()->json([
-            'all' => TourCategory::all()
+            'all' => TourCategory::orderBy('created_at', 'desc')->get()
         ]);
     }
 
@@ -27,10 +27,14 @@ class TourCategoryController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(TourCategoryRequest $request)
+    public function store(Request $request)
     {
+        $tourCategory = TourCategory::create(
+            $request->all()
+        );
+
         return response()->json([
-            'created' => TourCategory::create($request->all),
+            'created' => $tourCategory,
             'status' => true
         ]);
     }
@@ -46,7 +50,7 @@ class TourCategoryController extends Controller
         $showTourCategory = TourCategory::query()->where('id', $id)->get();
 
         return response()->json([
-            'showGallery' => $showTourCategory,
+            TourCategory::query()->where('id', $id)->get(),
             'status' => true
         ]);
     }
