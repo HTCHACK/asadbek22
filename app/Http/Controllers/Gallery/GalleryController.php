@@ -81,6 +81,7 @@ class GalleryController extends Controller
 
         if ($request->picture == $gallery->picture) {
             $gallery->update($data);
+            return response()->json(['updated' => 'Gallery successfully updated']);
         } else {
             $file = $request->file('picture');
             $name = '/picture/' . uniqid() . '.' . $file->extension();
@@ -88,11 +89,9 @@ class GalleryController extends Controller
             $data['picture'] = $name;
 
             $gallery->update($data);
+
+            return new GalleryResource($gallery);
         }
-
-
-
-        return new GalleryResource($gallery);
     }
 
     /**

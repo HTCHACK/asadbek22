@@ -25,14 +25,7 @@
                 :direction="direction"
                 size="90%"
             >
-                <div
-                    class="save"
-                    style="
-                      
-                        background: #4376a6;
-                        width: 100%;
-                    "
-                >
+                <div class="save" style="background: #4376a6; width: 100%">
                     <p class="cancel">
                         <el-button type="danger" @click.prevent="backTour">
                             Закрыт
@@ -59,7 +52,7 @@
                     </p>
                 </div>
                 <div class="container" style="padding-top: 4rem">
-                    <form style="padding-bottom: 2rem;padding-top:3rem">
+                    <form style="padding-bottom: 2rem; padding-top: 3rem">
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <h3 style="text-align: left; font-weight: bold">
@@ -254,17 +247,17 @@
                     <th scope="col" colspan="2">Настройки</th>
                 </tr>
             </thead>
-            <tbody v-if="tours.length > 0">
+            <tbody v-if="!filteredTours.length || tours.length < 1">
+                <tr scope="row">
+                    <td colspan="8">Еще нет тур</td>
+                </tr>
+            </tbody>
+            <tbody v-else>
                 <tour-card
                     v-for="tour in filteredTours"
                     :key="tour.id"
                     :tour="tour"
                 />
-            </tbody>
-            <tbody v-else>
-                <tr scope="row">
-                    <td colspan="8">Еще нет тур</td>
-                </tr>
             </tbody>
             <tbody></tbody>
         </table>
@@ -464,7 +457,6 @@ h2 {
 
 .save {
     float: right;
-
 }
 
 /* Table Styles */

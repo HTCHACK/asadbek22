@@ -3790,21 +3790,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
@@ -4064,7 +4049,6 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-//
 //
 //
 //
@@ -4597,7 +4581,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       },
       loading: false,
       search: "",
-      table_loading: true
+      table_loading: false
     };
   },
   computed: _objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_1__.mapGetters)({
@@ -5404,13 +5388,6 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -12596,7 +12573,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n#app {\n    font-family: Avenir, Helvetica, Arial, sans-serif;\n    -webkit-font-smoothing: antialiased;\n    -moz-osx-font-smoothing: grayscale;\n    text-align: center;\n    color: #2c3e50;\n}\n.el-menu-demo :active {\n    background-color: #2e6190;\n}\n.my {\n    background-color: #4376a6;\n    border: none;\n}\n.my:hover {\n    background-color: #2e6190;\n}\n.img {\n    width: 65px;\n}\n.el-menu-item.is-active {\n    background-color: #03192e;\n}\n.setting {\n    float: right;\n    padding-right: 2%;\n    padding-top: 1rem;\n}\n.el-icon-setting {\n    color: #fff;\n    font-size: 30px;\n}\n.el-dropdown {\n    vertical-align: top;\n    float: right;\n    padding-right: 2%;\n    padding-top: 0.18%;\n}\n.el-dropdown + .el-dropdown {\n    margin-left: 15px;\n}\n.el-icon-arrow-down {\n    font-size: 12px;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n#app {\n    font-family: Avenir, Helvetica, Arial, sans-serif;\n    -webkit-font-smoothing: antialiased;\n    -moz-osx-font-smoothing: grayscale;\n    text-align: center;\n    color: #2c3e50;\n}\n#nav el-menu-item.router-link-exact-active {\n    color: #fff;\n    font-weight: bold;\n    background-color: #2e6190;\n    padding-top: 2rem;\n    padding-bottom: 1.3rem;\n    padding-left: 1.3rem;\n    padding-right: 1.3rem;\n    margin-left: -1.3rem;\n    margin-right: -1.3rem;\n}\n.my {\n    background-color: #4376a6;\n    border: none;\n}\n.my:hover {\n    background-color: #2e6190;\n}\n.img {\n    width: 65px;\n}\n.el-menu-item.is-active {\n    background-color: #03192e;\n}\n.setting {\n    float: right;\n    padding-right: 2%;\n    padding-top: 1rem;\n}\n.el-icon-setting {\n    color: #fff;\n    font-size: 30px;\n}\n.el-dropdown {\n    vertical-align: top;\n    float: right;\n    padding-right: 2%;\n    padding-top: 0.18%;\n}\n.el-dropdown + .el-dropdown {\n    margin-left: 15px;\n}\n.el-icon-arrow-down {\n    font-size: 12px;\n}\n\n\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -107047,7 +107024,7 @@ var render = function() {
             "background-color": "#4376a6",
             "text-color": "#fff",
             "active-text-color": "#fff",
-            "active-background-color": "#195a97"
+            id: "nav"
           },
           on: { select: _vm.handleSelect }
         },
@@ -107062,12 +107039,7 @@ var render = function() {
                 }
               }
             },
-            [
-              _c("router-link", { attrs: { to: { name: "Home" } } }, [
-                _vm._v("\n                Главная страница\n            ")
-              ])
-            ],
-            1
+            [_vm._v("\n            Главная страница\n        ")]
           ),
           _vm._v(" "),
           _c(
@@ -107080,12 +107052,7 @@ var render = function() {
                 }
               }
             },
-            [
-              _c("router-link", { attrs: { to: { name: "Category" } } }, [
-                _vm._v("\n                Категория турпакета\n            ")
-              ])
-            ],
-            1
+            [_vm._v("\n            Категория турпакета\n        ")]
           ),
           _vm._v(" "),
           _c(
@@ -107098,12 +107065,7 @@ var render = function() {
                 }
               }
             },
-            [
-              _c("router-link", { attrs: { to: { name: "Tour" } } }, [
-                _vm._v("\n                ТУР Пакеты\n            ")
-              ])
-            ],
-            1
+            [_vm._v("\n            ТУР Пакеты\n        ")]
           ),
           _vm._v(" "),
           _c(
@@ -107116,12 +107078,7 @@ var render = function() {
                 }
               }
             },
-            [
-              _c("router-link", { attrs: { to: { name: "Payment" } } }, [
-                _vm._v("\n                Платежи\n            ")
-              ])
-            ],
-            1
+            [_vm._v("\n            Платежи\n        ")]
           ),
           _vm._v(" "),
           _c(
@@ -107134,12 +107091,7 @@ var render = function() {
                 }
               }
             },
-            [
-              _c("router-link", { attrs: { to: { name: "Gallery" } } }, [
-                _vm._v("\n                Галерея\n            ")
-              ])
-            ],
-            1
+            [_vm._v("\n            Галерея\n        ")]
           ),
           _vm._v(" "),
           _c(
@@ -107152,12 +107104,7 @@ var render = function() {
                 }
               }
             },
-            [
-              _c("router-link", { attrs: { to: { name: "Contact" } } }, [
-                _vm._v("\n                Контакты\n            ")
-              ])
-            ],
-            1
+            [_vm._v("\n            Контакты\n        ")]
           ),
           _vm._v(" "),
           _c(
@@ -107170,12 +107117,7 @@ var render = function() {
                 }
               }
             },
-            [
-              _c("router-link", { attrs: { to: { name: "Comment" } } }, [
-                _vm._v("\n                Комментарии\n            ")
-              ])
-            ],
-            1
+            [_vm._v("\n            Комментарии\n        ")]
           ),
           _vm._v(" "),
           _c(
@@ -107188,12 +107130,7 @@ var render = function() {
                 }
               }
             },
-            [
-              _c("router-link", { attrs: { to: { name: "OrderTours" } } }, [
-                _vm._v("\n                Заказы\n            ")
-              ])
-            ],
-            1
+            [_vm._v("\n            Заказы")]
           ),
           _vm._v(" "),
           _c(
@@ -109797,8 +109734,9 @@ var render = function() {
         [
           _vm._m(0),
           _vm._v(" "),
-          _vm.tours.length > 0
-            ? _c(
+          !_vm.filteredTours.length || _vm.tours.length < 1
+            ? _c("tbody", [_vm._m(1)])
+            : _c(
                 "tbody",
                 _vm._l(_vm.filteredTours, function(tour) {
                   return _c("tour-card", {
@@ -109807,8 +109745,7 @@ var render = function() {
                   })
                 }),
                 1
-              )
-            : _c("tbody", [_vm._m(1)]),
+              ),
           _vm._v(" "),
           _c("tbody")
         ]

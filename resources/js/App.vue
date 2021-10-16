@@ -8,51 +8,36 @@
             background-color="#4376a6"
             text-color="#fff"
             active-text-color="#fff"
-            active-background-color="#195a97"
+            id="nav"
         >
             <!-- <el-menu-item index="0"
                     ><router-link :to="{ name: 'Home' }"
                         ><img :src="image" class="img" /></router-link
                 ></el-menu-item> -->
-            <el-menu-item @click="pushToRouter('Home')" index="1"
-                ><router-link :to="{ name: 'Home' }">
-                    Главная страница
-                </router-link></el-menu-item
-            >
-            <el-menu-item @click="pushToRouter('Category')" index="2"
-                ><router-link :to="{ name: 'Category' }">
-                    Категория турпакета
-                </router-link></el-menu-item
-            >
-            <el-menu-item @click="pushToRouter('Tour')" index="3"
-                ><router-link :to="{ name: 'Tour' }">
-                    ТУР Пакеты
-                </router-link></el-menu-item
-            >
-            <el-menu-item @click="pushToRouter('Payment')" index="4"
-                ><router-link :to="{ name: 'Payment' }">
-                    Платежи
-                </router-link></el-menu-item
-            >
-            <el-menu-item @click="pushToRouter('Gallery')" index="5"
-                ><router-link :to="{ name: 'Gallery' }">
-                    Галерея
-                </router-link></el-menu-item
-            >
-            <el-menu-item @click="pushToRouter('Contact')" index="6"
-                ><router-link :to="{ name: 'Contact' }">
-                    Контакты
-                </router-link></el-menu-item
-            >
-            <el-menu-item @click="pushToRouter('Comment')" index="7"
-                ><router-link :to="{ name: 'Comment' }">
-                    Комментарии
-                </router-link></el-menu-item
-            >
-            <el-menu-item @click="pushToRouter('OrderTours')" index="8"
-                ><router-link :to="{ name: 'OrderTours' }">
-                    Заказы
-                </router-link></el-menu-item
+
+            <el-menu-item @click="pushToRouter('Home')" index="1">
+                Главная страница
+            </el-menu-item>
+            <el-menu-item @click="pushToRouter('Category')" index="2">
+                Категория турпакета
+            </el-menu-item>
+            <el-menu-item @click="pushToRouter('Tour')" index="3">
+                ТУР Пакеты
+            </el-menu-item>
+            <el-menu-item @click="pushToRouter('Payment')" index="4">
+                Платежи
+            </el-menu-item>
+            <el-menu-item @click="pushToRouter('Gallery')" index="5">
+                Галерея
+            </el-menu-item>
+            <el-menu-item @click="pushToRouter('Contact')" index="6">
+                Контакты
+            </el-menu-item>
+            <el-menu-item @click="pushToRouter('Comment')" index="7">
+                Комментарии
+            </el-menu-item>
+            <el-menu-item @click="pushToRouter('OrderTours')" index="8">
+                Заказы</el-menu-item
             >
 
             <el-dropdown>
@@ -74,7 +59,6 @@ export default {
     data() {
         return {
             image: image,
-            
         };
     },
     methods: {
@@ -83,7 +67,6 @@ export default {
         },
         pushToRouter(routeName) {
             this.$router.push({ name: routeName });
-            
         },
     },
 };
@@ -98,8 +81,16 @@ export default {
     color: #2c3e50;
 }
 
-.el-menu-demo :active {
+#nav el-menu-item.router-link-exact-active {
+    color: #fff;
+    font-weight: bold;
     background-color: #2e6190;
+    padding-top: 2rem;
+    padding-bottom: 1.3rem;
+    padding-left: 1.3rem;
+    padding-right: 1.3rem;
+    margin-left: -1.3rem;
+    margin-right: -1.3rem;
 }
 
 .my {
@@ -140,4 +131,6 @@ export default {
 .el-icon-arrow-down {
     font-size: 12px;
 }
+
+
 </style>

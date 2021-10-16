@@ -87,7 +87,6 @@
         </td>
     </tr>
 </template>
-
 <script>
 import { mapActions } from "vuex";
 import _ from "lodash";
@@ -205,7 +204,6 @@ export default {
     },
 };
 </script>
-
 <style scoped>
 .container {
     margin-bottom: 2rem;

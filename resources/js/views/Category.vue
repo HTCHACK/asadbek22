@@ -107,7 +107,7 @@ export default {
             },
             loading: false,
             search: "",
-            table_loading:true,
+            table_loading:false,
         };
     },
 
