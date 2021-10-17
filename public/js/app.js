@@ -4350,6 +4350,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -12837,7 +12838,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.container[data-v-89f54412] {\n    margin-top: 2rem;\n}\n.select_ma[data-v-89f54412] {\n    padding-bottom: 2rem;\n}\n.select_m[data-v-89f54412] {\n    padding-bottom: 6rem;\n}\nh2[data-v-89f54412] {\n    text-align: center;\n    font-size: 18px;\n    text-transform: uppercase;\n    letter-spacing: 1px;\n    color: white;\n    padding: 30px 0;\n}\n.asad[data-v-89f54412] {\n    float: right;\n    padding-right: 0.2rem;\n    padding-bottom: 1.3rem;\n}\n.sel[data-v-89f54412] {\n    float: left;\n    width: 60%;\n    padding-bottom: 2rem;\n}\n.ag[data-v-89f54412] {\n    float: left;\n    width: 100%;\n    padding-bottom: 2rem;\n}\n.date[data-v-89f54412] {\n    float: left;\n    width: 60%;\n}\n.head[data-v-89f54412] {\n    float: right;\n    padding-right: 1rem;\n    padding-top: 1rem;\n}\n.cancel[data-v-89f54412] {\n    float: right;\n    padding-right: 1rem;\n    padding-top: 1rem;\n}\n.save[data-v-89f54412] {\n    float: right;\n}\n\n/* Table Styles */\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.container[data-v-89f54412] {\n    margin-top: 2rem;\n}\n.select_ma[data-v-89f54412] {\n    padding-bottom: 2rem;\n}\n.select_m[data-v-89f54412] {\n    padding-bottom: 6rem;\n}\nh2[data-v-89f54412] {\n    text-align: center;\n    font-size: 18px;\n    text-transform: uppercase;\n    letter-spacing: 1px;\n    color: white;\n    padding: 30px 0;\n}\n/**new */\n.asad[data-v-89f54412] {\n    float: right;\n    padding-right: 0.2rem;\n    padding-bottom: 1.3rem;\n}\n.sel[data-v-89f54412] {\n    float: left;\n    width: 60%;\n    padding-bottom: 2rem;\n}\n.ag[data-v-89f54412] {\n    float: left;\n    width: 100%;\n    padding-bottom: 2rem;\n}\n.date[data-v-89f54412] {\n    float: left;\n    width: 60%;\n}\n.head[data-v-89f54412] {\n    float: right;\n    padding-right: 1rem;\n    padding-top: 1rem;\n}\n.cancel[data-v-89f54412] {\n    float: right;\n    padding-right: 1rem;\n    padding-top: 1rem;\n}\n.save[data-v-89f54412] {\n    float: right;\n}\n\n/* Table Styles */\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
